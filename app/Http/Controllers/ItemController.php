@@ -5,25 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class ConncetionController extends Controller
+class ItemController extends Controller
 {
-    function index()
+    function get_all($id)
     {
         // URL
-        $apiURL = 'http://94.74.86.174:8080/api/login';
+        $apiURL = '94.74.86.174:8080/api/checklist/' . $id . '/item';
 
         // POST Data
-        $postInput = [
-            'password' => 'testing123',
-            'username' => "sinafadhiel"
-        ];
+        $postInput = [];
 
         // Headers
         $headers = [
-            //...
+            'Authorization' => 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W119.i2OVQdxr08dmIqwP7cWOJk5Ye4fySFUqofl-w6FKbm4EwXTStfm0u-sGhDvDVUqNG8Cc7STtUJlawVAP057Jlg'
         ];
 
-        $response = Http::withHeaders($headers)->post($apiURL, $postInput);
+        $response = Http::withHeaders($headers)->get($apiURL);
 
         $statusCode = $response->status();
         $responseBody = json_decode($response->getBody(), true);
@@ -33,21 +30,20 @@ class ConncetionController extends Controller
         dd($responseBody); // body response
     }
 
-    function register()
+    function create_item($id)
     {
+
         // URL
-        $apiURL = 'http://94.74.86.174:8080/api/register';
+        $apiURL = '94.74.86.174:8080/api/checklist/' . $id . '/item';
 
         // POST Data
         $postInput = [
-            'email' => 'sinafadhiel@gmail.com',
-            'password' => 'testing123',
-            'username' => "sinafadhiel"
+            'itemName' => 'Produk 2.2'
         ];
 
         // Headers
         $headers = [
-            //...
+            'Authorization' => 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6W119.i2OVQdxr08dmIqwP7cWOJk5Ye4fySFUqofl-w6FKbm4EwXTStfm0u-sGhDvDVUqNG8Cc7STtUJlawVAP057Jlg'
         ];
 
         $response = Http::withHeaders($headers)->post($apiURL, $postInput);

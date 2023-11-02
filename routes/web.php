@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ChecklistController;
 use App\Http\Controllers\ConncetionController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/request_token', ConncetionController::class);
-Route::get('/all_checklist', [ConncetionController::class, 'get_all']);
-Route::get('/create_checklist', [ConncetionController::class, 'create_checklist']);
-Route::get('/delete_checklist/{id}', [ConncetionController::class, 'delete_checklist']);
+// Auth API
+Route::get('/request_token', [ConncetionController::class, 'index']);
+
+// CHECKLIST API
+Route::get('/all_checklist', [ChecklistController::class, 'get_all']);
+Route::get('/create_checklist', [ChecklistController::class, 'create_checklist']);
+Route::get('/delete_checklist/{id}', [ChecklistController::class, 'delete_checklist']);
+
+// CHECKLIST ITEM API
+Route::get('/all_item/{id}', [ItemController::class, 'get_all']);
+Route::get('/create_item/{id}', [ItemController::class, 'create_item']);
