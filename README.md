@@ -1,5 +1,5 @@
-<h1>Schema DB</h1>
+Schema DB
 ![Alt text](public/schema_db.PNG)
 
-<h1>Request Token</h1>
+Request Token
 ![Alt text](public/request_token.PNG)
