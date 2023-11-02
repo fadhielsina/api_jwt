@@ -31,3 +31,7 @@ Route::get('/delete_checklist/{id}', [ChecklistController::class, 'delete_checkl
 // CHECKLIST ITEM API
 Route::get('/all_item/{id}', [ItemController::class, 'get_all']);
 Route::get('/create_item/{id}', [ItemController::class, 'create_item']);
+Route::get('/get_item/{id_item}/item/{id}', [ItemController::class, 'get_item']);
+Route::get('/update_status/{id_item}/item/{id}', [ItemController::class, 'update_status']);
+Route::get('/delete_item/{id_item}/item/{id}', [ItemController::class, 'delete_item']);
+Route::get('/rename_item/{id_item}/item/{id}', [ItemController::class, 'rename_item']);
