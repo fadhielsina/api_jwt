@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConncetionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/request_token', ConncetionController::class);
+Route::get('/all_checklist', [ConncetionController::class, 'get_all']);
+Route::get('/create_checklist', [ConncetionController::class, 'create_checklist']);
+Route::get('/delete_checklist/{id}', [ConncetionController::class, 'delete_checklist']);
