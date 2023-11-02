@@ -128,7 +128,7 @@ class ItemController extends Controller
     function rename_item($id_item, $id)
     {
         // URL
-        $apiURL = '94.74.86.174:8080/api/checklist/' . $id_item . '/item/' . $id . '';
+        $apiURL = '94.74.86.174:8080/api/checklist/' . $id_item . '/item/rename/' . $id . '';
 
         // POST Data
         $postInput = [
